@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container col-md-8 text-center mt-3">
+<table class="table table-light">
+    <tr>
+        <th colspan="3">
+            <h1 class="text text-primary">Student List</h1>
+        </th>
+
+    </tr>
+    <tr>
+        <th class="text text-success">Student Id</th>
+        <th class="text text-success">Student Name</th>
+        <th class="text text-success">Student Image</th>
+        <th class="text text-success">Actions</th>
+    </tr>
+{% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td> <a class="text-decoration-none" href="{{ path('student_detail', {'id' : user.id }) }}">
+        <img src="{{ user.image }}" width="100" height="100"></a></td>
+
+    </tr>
+{% endfor %}
+{% endblock %}
