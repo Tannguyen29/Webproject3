@@ -3,30 +3,26 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserType;
 use App\Repository\UserRepository;
+use Symfony\Bridge\Doctrine\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/student')]
 class StudentCrudController extends AbstractController
 {
-    #[Route('/student/crud', name: 'app_student_crud')]
-    public function studentIndex (UserRepository $UserRepository):Response {
-        $users= $UserRepository->findAll();
+    #[Route('/crud', name: 'app_student_crud')]
+    public function studentindex (UserRepository $UserRepository):Response {
+        $users=$UserRepository->findAll();
         return $this->render('student_crud/index.html.twig',
             [
-                'users ' => $users 
+                'users' => $users
             ]);
       }
-
-    #[Route('/list', name: 'student_list')]
-  public function studentList (UserRepository $UserRepository):Response {
-    $users=$UserRepository->findAll();
-    return $this->render('student_crud/index.html.twig',
-        [
-            'users' => $users
-        ]);
-  }
 
     #[Route('/detail/{id}', name: 'student_detail')]
     public function studentDetail ($id, UserRepository $UserRepository) {
@@ -40,4 +36,62 @@ class StudentCrudController extends AbstractController
               'users' => $users
           ]);
     }
+    
+    #[Route('/add', name: 'student_add')]
+  public function studentAdd (UserRepository $UserRepository, Request $request):Response {
+    $user = new User;
+    $users = $this->getUser();
+    $form = $this->createForm(UserType::class,$user); 
+    $form->add('submit', SubmitType::class );
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $manager = $this->getDoctrine()->getManager();
+        $manager->persist($user);
+        $manager->flush();
+        $this->addFlash('Info','Add users successfully !');
+        return $this->redirectToRoute('app_student_crud');
+    }
+    return $this->renderForm('student_crud/add.html.twig',
+    [
+        'userForm' => $form
+    ]);
+  }
+
+  #[Route('/delete/{id}', name: 'student_delete')]
+  public function studentDelete ($id, ManagerRegistry $managerRegistry) {
+    $users = $managerRegistry->getRepository(User::class)->find($id);
+    if ($users == null) {
+        $this->addFlash('Warning', 'users not existed !');
+    
+    } else {
+        $manager = $managerRegistry->getManager();
+        $manager->remove($users);
+        $manager->flush();
+        $this->addFlash('Info', 'Delete users successfully !');
+    }
+    return $this->redirectToRoute('app_student_crud');
+  }
+
+  #[Route('/edit/{id}', name: 'student_edit')]
+  public function studentEdit ($id , UserRepository $UserRepository, Request $request):Response {
+    $users = $UserRepository->find($id);
+    if ($users == null) {
+        $this->addFlash('Warning', 'users not existed !');
+        return $this->redirectToRoute('app_student_crud');
+    } else {
+        $form = $this->createForm(UserType::class,$users);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($users);
+            $manager->flush();
+            $this->addFlash('Info','Edit users successfully !');
+            return $this->redirectToRoute('app_student_crud');
+        }
+        return $this->renderForm('student_crud/edit.html.twig',
+        [
+            'userForm' => $form
+        ]);
+    }
+}
 }

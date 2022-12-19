@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="{{path('app_admin')}}">Home</a>
-                    <a class="nav-link" href="{{path('student_list')}}">CRUD student</a>
+                    <a class="nav-link" href="{{path('app_student_crud')}}">CRUD student</a>
 					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
 								<u>
 									<i>
@@ -72,8 +72,8 @@
 					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
 								<u>
 									<i>
-										{% if user != null %}
-											({{ user.email }})
+										{% if app.user != null %}
+											({{ app.user.email }})
 										{% endif %}
 									</i>
 								</u>

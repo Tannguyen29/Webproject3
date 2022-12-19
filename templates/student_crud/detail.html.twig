@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container col-md-8 text-center mt-5">
+   <div class="row">
+      <div class="col-4">
+         <div class="card">
+            <img src="{{ users.image }}" width="300" height="300">
+         </div>
+      </div>
+      <div class="col-6">
+         <table class="table table-bordered">
+            <tr>
+               <th colspan="2" class="bg-light">
+                  <h2 class="text-danger"> user Information </h2>
+               </th>
+            </tr>
+            <tr class="h4">
+               <th>Name</th>
+               <td>{{ users.name }}</td>
+            </tr>
+            <tr class="h4">
+               <th>Age </th>
+               <td>{{ users.phonenumber }} </td>
+            </tr>
+            <tr class="h4">
+               <th>Address</th>
+               <td>{{ users.address }}</td>
+            </tr>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </div>
+</div>
+{% endblock %}
