@@ -50,7 +50,7 @@ class StudentAuthenticator extends AbstractLoginFormAuthenticator
     if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
         return new RedirectResponse($this->urlGenerator->generate('app_admin'));
     }
-    return new RedirectResponse($this->urlGenerator->generate('user'));
+    return new RedirectResponse($this->urlGenerator->generate('app_student'));
 
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
