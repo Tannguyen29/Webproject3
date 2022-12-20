@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/student')]
+#[Route('/admin')]
 class StudentCrudController extends AbstractController
 {
     #[Route('/crud', name: 'app_student_crud')]
