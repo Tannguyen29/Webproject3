@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
-use Symfony\Bridge\Doctrine\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -73,7 +73,7 @@ class StudentCrudController extends AbstractController
   }
 
   #[Route('/edit/{id}', name: 'student_edit')]
-  public function studentEdit ($id , UserRepository $UserRepository, Request $request):Response {
+  public function studentEdit ($id , UserRepository $UserRepository, Request $request,  ManagerRegistry $managerRegistry):Response {
     $users = $UserRepository->find($id);
     if ($users == null) {
         $this->addFlash('Warning', 'users not existed !');
@@ -82,7 +82,7 @@ class StudentCrudController extends AbstractController
         $form = $this->createForm(UserType::class,$users);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $manager = $this->getDoctrine()->getManager();
+            $manager = $managerRegistry->getManager();
             $manager->persist($users);
             $manager->flush();
             $this->addFlash('Info','Edit users successfully !');
