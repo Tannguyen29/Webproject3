@@ -37,25 +37,6 @@ class StudentCrudController extends AbstractController
           ]);
     }
     
-    #[Route('/add', name: 'student_add')]
-  public function studentAdd (UserRepository $UserRepository, Request $request):Response {
-    $user = new User;
-    $users = $this->getUser();
-    $form = $this->createForm(UserType::class,$user); 
-    $form->add('submit', SubmitType::class );
-    $form->handleRequest($request);
-    if ($form->isSubmitted() && $form->isValid()) {
-        $manager = $this->getDoctrine()->getManager();
-        $manager->persist($user);
-        $manager->flush();
-        $this->addFlash('Info','Add users successfully !');
-        return $this->redirectToRoute('app_student_crud');
-    }
-    return $this->renderForm('student_crud/add.html.twig',
-    [
-        'userForm' => $form
-    ]);
-  }
 
   #[Route('/delete/{id}', name: 'student_delete')]
   public function studentDelete ($id, ManagerRegistry $managerRegistry) {
