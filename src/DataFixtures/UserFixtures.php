@@ -38,7 +38,7 @@ class UserFixtures extends Fixture
               ->setAddress("Hanoi")
               ->setImage("anh.jpg");
         $manager->persist($user2);
-
+        
         $manager->flush();
     }
 }
