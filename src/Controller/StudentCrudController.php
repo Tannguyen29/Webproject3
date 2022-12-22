@@ -53,6 +53,7 @@ class StudentCrudController extends AbstractController
     return $this->redirectToRoute('app_student_crud');
   }
 
+  
   #[Route('/edit/{id}', name: 'student_edit')]
   public function studentEdit ($id , UserRepository $UserRepository, Request $request,  ManagerRegistry $managerRegistry):Response {
     $users = $UserRepository->find($id);
