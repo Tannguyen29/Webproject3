@@ -19,77 +19,78 @@
     </head>
     <body>
         {% block header %}
-<div
+<div>
 				
 				{# bs5-nav-ul #}
 				{% if is_granted('ROLE_ADMIN') %}
-					<div class="example-wrapper">
-    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand mb-0 h1" href="#">
-                <img class="d-inline-block align-top"
-                src="https://greenwich.edu.vn/wp-content/uploads/2022/05/2022-Greenwich-Eng.png" width="150" height="70" />
-             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{{path('app_admin')}}">Home</a>
-                    <a class="nav-link" href="{{path('app_student_crud')}}">CRUD student</a>
-                    <a class="nav-link" href="{{path('admin_curriculum')}}">Curriculum</a>
-                    <a class="nav-link" href="{{path('admin_classroom')}}">Classroom</a>
-					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
-								<u>
-									<i>
-										{% if app.user != null %}
-											({{ app.user.email }})
-										{% endif %}
-									</i>
-								</u>
-							</a>
+	<div class="example-wrapper">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand mb-0 h1" href="#">
+                    <img class="d-inline-block align-top"
+                    src="https://greenwich.edu.vn/wp-content/uploads/2022/05/2022-Greenwich-Eng.png" width="150" height="70" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="{{path('app_admin')}}">Home</a>
+                        <a class="nav-link" href="{{path('app_student_crud')}}">CRUD student</a>
+                        <a class="nav-link" href="{{path('admin_curriculum')}}">Curriculum</a>
+                        <a class="nav-link" href="{{path('admin_classroom')}}">Classroom</a>
+                        <a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
+                                    <u>
+                                        <i>
+                                            {% if app.user != null %}
+                                                ({{ app.user.email }})
+                                            {% endif %}
+                                        </i>
+                                    </u>
+                                </a>
+                    </div>
                 </div>
-            </div>
-        </div>  
-    </nav>
-</div>
+            </div>  
+        </nav>
+    </div>
 				{% elseif is_granted('ROLE_USER') %}
 					<!-- ROLE_CUSTOMER -->
-					<div class="example-wrapper">
-    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand mb-0 h1" href="#">
-                <img class="d-inline-block align-top"
-                src="https://greenwich.edu.vn/wp-content/uploads/2022/05/2022-Greenwich-Eng.png" width="150" height="70" />
-             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{{path('app_student')}}">Home</a>
-                    <a class="nav-link" href="{{path('acc_detail')}}">Account Information</a>
-                    <a class="nav-link" href="{{path('student_curriculum')}}">Curriculum</a>
-                    <a class="nav-link" href="{{path('student_schedule')}}">View Schedule</a>
-                    <a class="nav-link" href="#">Grade</a>
-					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
-								<u>
-									<i>
-										{% if app.user != null %}
-											({{ app.user.email }})
-										{% endif %}
-									</i>
-								</u>
-							</a>
+		<div class="example-wrapper">
+            <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand mb-0 h1" href="#">
+                        <img class="d-inline-block align-top"
+                        src="https://greenwich.edu.vn/wp-content/uploads/2022/05/2022-Greenwich-Eng.png" width="150" height="70" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="{{path('app_student')}}">Home</a>
+                            <a class="nav-link" href="{{path('acc_detail')}}">Account Information</a>
+                            <a class="nav-link" href="{{path('student_curriculum')}}">Curriculum</a>
+                            <a class="nav-link" href="{{path('student_schedule')}}">View Schedule</a>
+                            <a class="nav-link" href="#">Grade</a>
+                            <a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
+                                        <u>
+                                            <i>
+                                                {% if app.user != null %}
+                                                    ({{ app.user.email }})
+                                                {% endif %}
+                                            </i>
+                                        </u>
+                                    </a>
                     
-                </div>
-            </div>
-        </div>  
-    </nav>
-</div>
+                        </div>
+                    </div>
+                </div>  
+            </nav>
+        </div>
 				{% endif %}
 
-			</div>
+	</div>
+</div>
 			{# bs5-modal-default #}
 
 			<!-- Modal -->
