@@ -19,8 +19,6 @@
         <td>{{ subject.id }}</td>
         <td>{{ subject.subjectcode }}</td>
         <td>{{subject.subjectname}}</td>
-        <td> <a class="text-decoration-none" href="{{ path('student_detail', {'id' : user.id }) }}">
-        <img src="{{ user.image }}" width="100" height="100"></a></td>
     </tr>
 {% endfor %}
 {% endblock %}
