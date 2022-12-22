@@ -19,7 +19,7 @@
     </head>
     <body>
         {% block header %}
-<div>
+<div
 				
 				{# bs5-nav-ul #}
 				{% if is_granted('ROLE_ADMIN') %}
@@ -38,7 +38,7 @@
                     <a class="nav-link active" aria-current="page" href="{{path('app_admin')}}">Home</a>
                     <a class="nav-link" href="{{path('app_student_crud')}}">CRUD student</a>
                     <a class="nav-link" href="{{path('admin_curriculum')}}">Curriculum</a>
-                    <a class="nav-link" href="{{path('app_feedback')}}">Feedback</a>
+                    <a class="nav-link" href="{{path('admin_curriculum')}}">Feedback</a>
 					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
 								<u>
 									<i>
@@ -69,7 +69,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="{{path('app_student')}}">Home</a>
                     <a class="nav-link" href="{{path('acc_detail')}}">Account Information</a>
-                    <a class="nav-link" href="{{path('feedback_add')}}">Feedback</a>
+                    <a class="nav-link" href="#">Attendance</a>
                     <a class="nav-link" href="{{path('student_curriculum')}}">Curriculum</a>
                     <a class="nav-link" href="#">Grade</a>
 					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
