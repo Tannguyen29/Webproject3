@@ -43,7 +43,7 @@ class UserType extends AbstractType
                 ])
             ->add('Name', TextType::class,
             [
-                'label' => 'Student name',
+                'label' => 'User name',
                 'attr' => [
                     'minlength' => 3,
                     'maxlength' => 30
@@ -63,7 +63,7 @@ class UserType extends AbstractType
             ])
             ->add('Address',TextType::class,
             [
-                'label' => 'Student address',
+                'label' => 'User address',
                 'attr' => [
                     'minlength' => 3,
                     'maxlength' => 50
@@ -71,7 +71,7 @@ class UserType extends AbstractType
             ])
             ->add('image',TextType::class,
             [
-                'label' => 'Student image',
+                'label' => 'User image',
                 'attr' => [
                     'maxlength' => 255
                 ]
