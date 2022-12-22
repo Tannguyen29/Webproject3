@@ -1,0 +1,15 @@
+{% form_theme feedbackForm 'bootstrap_5_layout.html.twig' %}
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container col-md-4 text-center mt-5">
+   <div class="card p-3 bg-light">
+      <h3 class="alert alert-primary">Add feedback</h3>
+        {{ form_start(feedbackForm) }}
+        {{ form_widget(feedbackForm)}}
+        <input class="btn btn-outline-danger" type="submit" value="Create">
+      {{ form_end(feedbackForm) }}
+  </div>
+</div>
+{% endblock %}

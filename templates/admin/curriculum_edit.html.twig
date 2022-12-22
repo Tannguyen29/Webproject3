@@ -1,0 +1,16 @@
+{% form_theme curriculumForm 'bootstrap_5_layout.html.twig' %}
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container col-md-4 text-center mt-3">
+   <div class="card p-3 bg-light">
+      <h3 class="alert alert-primary">Edit curriculum</h3>
+        {{ form_start(curriculumForm) }}
+         
+      {{ form_widget(curriculumForm)}}
+      <input class="btn btn-outline-danger" type="submit" value="Edit">
+
+      {{ form_end(curriculumForm) }}
+   </div>
+</div>
+{% endblock %}

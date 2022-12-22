@@ -38,7 +38,7 @@
                     <a class="nav-link active" aria-current="page" href="{{path('app_admin')}}">Home</a>
                     <a class="nav-link" href="{{path('app_student_crud')}}">CRUD student</a>
                     <a class="nav-link" href="{{path('admin_curriculum')}}">Curriculum</a>
-                    <a class="nav-link" href="{{path('admin_classroom')}}">Classroom</a>
+                    <a class="nav-link" href="{{path('admin_curriculum')}}">Feedback</a>
 					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
 								<u>
 									<i>
@@ -58,7 +58,7 @@
 					<div class="example-wrapper">
     <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand mb-0 h1" href="#">
+            <a class="navbar-brand md-0 h1" href="#">
                 <img class="d-inline-block align-top"
                 src="https://greenwich.edu.vn/wp-content/uploads/2022/05/2022-Greenwich-Eng.png" width="150" height="70" />
              </a>
@@ -69,8 +69,8 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="{{path('app_student')}}">Home</a>
                     <a class="nav-link" href="{{path('acc_detail')}}">Account Information</a>
+                    <a class="nav-link" href="#">Attendance</a>
                     <a class="nav-link" href="{{path('student_curriculum')}}">Curriculum</a>
-                    <a class="nav-link" href="{{path('student_schedule')}}">View Schedule</a>
                     <a class="nav-link" href="#">Grade</a>
 					<a class="nav-link text-danger" href="{{ path('app_logout')}}">Logout
 								<u>
@@ -96,7 +96,7 @@
 			
 
 		{% endblock %}
-		{% block body %}{% endblock %}
+		{% block body %}<div class="container col-md-8 text-center mt-3">{% endblock %}
 
 		{% block footer %}
 			<div class="container col-10 mt-3 text-center">

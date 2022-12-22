@@ -32,7 +32,7 @@ class StudentFunctionController extends AbstractController
           ]);
     }
 
-    #[Route('/curriculum', name: 'student_curriculum')]
+    #[Route('/student/curriculum', name: 'student_curriculum')]
     public function studentCurriculum (SubjectRepository $SubjectRepository):Response {
         $subjects=$SubjectRepository->findAll();
         return $this->render('student_function/curriculum.html.twig',
