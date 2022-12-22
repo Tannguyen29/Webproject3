@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container col-md-8 text-center mt-3">
+<table class="table table-light">
+    <tr>
+        <th colspan="3">
+            <h1 class="text text-primary">Curriculum</h1>
+        </th>
+        <th>
+            <a class="text-decoration-none" href="#">
+                <img src="{{ asset('image/button/add3.png') }}" width="40" height="40">
+            </a>
+        </th>
+    </tr>
+    <tr>
+        <th class="text text-success">Subject ID</th>
+        <th class="text text-success">Subject Code</th>
+        <th class="text text-success">Subject Name</th>
+        <th class="text text-success">Actions</th>
+    </tr>
+
+{% for subject in subjects %}
+    <tr>
+        <td>{{ subject.id }}</td>
+        <td>{{ subject.subjectcode }}</td>
+        <td>{{subject.subjectname}}</td>
+        <td>
+                <a class="text-decoration-none" href="{{ path('student_edit', {'id' : subject.id }) }}">
+                    <img src="{{ asset('image/button/edit.png') }}" width="40" height="40">
+                </a>
+                <a class="text-decoration-none" href="{{ path('student_delete', {'id' : subject.id }) }}"
+                onclick="return confirm('Are you sure to delete this student ?');"
+                >
+                    <img src="{{ asset('image/button/delete.png') }}" width="40" height="40">
+                </a>
+            </td>
+
+    </tr>
+{% endfor %}
+{% endblock %}

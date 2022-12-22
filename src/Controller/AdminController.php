@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\SubjectRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
@@ -15,4 +16,13 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
+
+    #[Route('/curriculum', name: 'admin_curriculum')]
+    public function adminCurriculum (SubjectRepository $SubjectRepository):Response {
+        $subjects=$SubjectRepository->findAll();
+        return $this->render('admin/curriculum.html.twig',
+            [
+                'subjects' => $subjects
+            ]);
+      }
 }
