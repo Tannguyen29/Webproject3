@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 use App\Form\ClassType;
-use App\Entity\Classroom;
 use App\Repository\ClassroomRepository;
-use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Classroom;
 
 class ClassroomCrudController extends AbstractController
 {
@@ -38,7 +38,7 @@ class ClassroomCrudController extends AbstractController
             }
             return $this->renderForm('classroom_crud/edit.html.twig',
             [
-                'userForm' => $form
+                'classForm' => $form
             ]);
         }
     
