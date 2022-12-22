@@ -40,4 +40,13 @@ class StudentFunctionController extends AbstractController
                 'subjects' => $subjects
             ]);
       }
+
+    #[Route('/schedule', name: 'student_schedule')]
+    public function studentSchedule (SubjectRepository $SubjectRepository):Response {
+        $subjects=$SubjectRepository->findAll();
+        return $this->render('student_function/schedule.html.twig',
+            [
+                'subjects' => $subjects
+            ]);
+      }
 }
